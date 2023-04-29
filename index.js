@@ -38,7 +38,8 @@ form.addEventListener("submit", (e)=>{
    let userinfo = {
     fullname: nameinp.value,
     email: emailinp.value,
-    password: passinp.value
+    password: passinp.value,
+    token: generatetoken()
    }
 
   
@@ -54,3 +55,13 @@ form.addEventListener("submit", (e)=>{
       
 
 });
+
+
+function generatetoken(){
+  let str = "";
+  for(let i=0; i<16; i++){
+      str +=   String.fromCharCode  (Math.floor(Math.random() * 89) + 33); //33 to 122
+  }
+
+  return str;
+}
